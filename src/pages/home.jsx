@@ -13,9 +13,10 @@ function Home({ foodName, setFoodName, output, setOutput, loading, setLoading, s
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="min-h-screen w-full " // Added padding-top for fixed navbar
+      className="min-h-screen w-full" 
     >
-      <div className="flex flex-col justify-center items-center px-2 sm:px-4">
+     <div className="flex flex-col justify-center items-center px-2 sm:px-4">
+
         {/* Header Section */}
         <div className="w-full z-20 flex flex-col items-center bg-neutral-900/80 pb-4 min-h-[50px]">
           <h2 className="relative z-10 text-2xl sm:text-3xl md:text-5xl md:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-white to-white flex items-center gap-1 sm:gap-2 md:gap-8 mt-16 sm:mt-20">
