@@ -1,3 +1,4 @@
+
 /* eslint-disable react/prop-types */
 "use client"
 
@@ -381,7 +382,7 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
   const proteinDensity = calculateProteinDensity(adjustedProtein, adjustedCalories);
 
   return (
-    <div className={`flex flex-col justify-center items-center w-full gap-4 transition-opacity duration-500 ease-in-out ${
+    <div className={`flex flex-col justify-start w-full transition-opacity duration-500 ease-in-out pb-10 ${
       isVisible ? 'opacity-100' : 'opacity-0'
     }`}>
       
@@ -427,7 +428,7 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
         style={{ cursor: output.length > 1 ? 'grab' : 'default' }}
       >
         <CardContainer className="w-full">
-          <CardBody className="bg-[#0C0C0C]/90 rounded-xl p-1 sm:p-2 md:p-3 border border-white/[0.05]">
+          <CardBody className="bg-[#0C0C0C]/90 rounded-xl p-1 sm:p-2 md:p-3 border border-white/[0.05] min-h-[420px] sm:min-h-[450px] md:min-h-[480px]">
             <CardItem>
               <CardHeader className="p-2 sm:p-3">
                 {/* 🆕 Food Type Badge */}
@@ -652,7 +653,7 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
 
       {/* Dot Indicators */}
       {output.length > 1 && (
-        <div className="flex justify-center gap-2 mt-4">
+        <div className="flex justify-center gap-2 mt-1">
           {output.map((_, index) => (
             <button
               key={index}
