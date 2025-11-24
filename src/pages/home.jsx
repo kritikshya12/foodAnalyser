@@ -15,17 +15,17 @@ function Home({ foodName, setFoodName, output, setOutput, loading, setLoading, s
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="min-h-screen w-full flex flex-col"
     >
-      {/* Fixed Header Section - Made more compact */}
-      <div className="w-full z-20 flex flex-col items-center bg-neutral-900/80 pb-3 sm:pt-16 sticky top-0 border-b border-neutral-700/50">
-        <h2 className="relative z-10 text-xl sm:text-2xl md:text-4xl max-w-5xl mx-auto text-center tracking-tight font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-white to-white flex items-center gap-1 sm:gap-2 md:gap-6">
-          <span className="text-sm sm:text-lg md:text-2xl lg:text-4xl">Food Analyser</span>
-          <span className="text-white text-xs sm:text-sm md:text-base font-thin">x</span>
-          <span className="text-sm sm:text-lg md:text-2xl lg:text-4xl">fit</span>
+      {/* Fixed Header Section */}
+      <div className="w-full z-20 flex flex-col items-center bg-neutral-900/80 pb-2 sm:pb-3 lg:pb-4 pt-3 sm:pt-4 lg:pt-16 sticky top-0 border-b border-neutral-700/50 px-3">
+        <h2 className="relative z-10 max-w-5xl mx-auto text-center tracking-tight font-medium bg-clip-text text-transparent bg-gradient-to-b from-neutral-800 via-white to-white flex items-center gap-0.5 sm:gap-2 md:gap-4 lg:gap-6 flex-wrap justify-center">
+          <span className="text-base sm:text-lg md:text-2xl lg:text-4xl">Food Analyser</span>
+          <span className="text-white text-xs sm:text-sm md:text-base lg:text-xl font-thin">x</span>
+          <span className="text-base sm:text-lg md:text-2xl lg:text-4xl">fit</span>
         </h2>
-        <h3 className="text-white text-xs sm:text-sm md:text-base font-thin mb-2 px-2 text-center mt-1">
+        <h3 className="text-white text-xs sm:text-sm md:text-base font-thin mb-2 sm:mb-3 px-2 text-center mt-1 sm:mt-2">
           Discover nutritional information for any food
         </h3>
-        <div className="w-full max-w-md sm:max-w-lg md:max-w-2xl px-2">
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl px-1 sm:px-2">
           <PlaceholdersAndVanishInputDemo
             foodName={foodName}
             setFoodName={setFoodName}
@@ -38,43 +38,36 @@ function Home({ foodName, setFoodName, output, setOutput, loading, setLoading, s
           />
         </div>
 
-        {/* "How to Use" Button - Always visible */}
+        {/* How to Use Button */}
         <button
           onClick={() => setIsGuideOpen(true)}
-          className="mt-2 text-xs text-neutral-400 hover:text-white underline focus:outline-none transition-colors"
+          className="mt-1 sm:mt-2 text-xs sm:text-sm text-neutral-400 hover:text-white underline focus:outline-none transition-colors"
         >
           How to Use?
         </button>
       </div>
 
-      {/* Scrollable Content Section with better spacing */}
-      <div className="flex-1 flex flex-col items-center justify-start px-2 sm:px-0 ">
-        <div className=" sm:mt-10"> 
+      {/* Scrollable Content Section */}
+      <div className="flex-1 flex flex-col items-center justify-start px-2 sm:px-3 lg:px-4 py-4 sm:py-6 lg:py-10">
         <FoodAnalyzer
           output={output}
           loading={loading}
           originalQuery={originalQuery}
           searchAttempted={searchAttempted}
         />
-         </div>
       </div>
 
-      {/* Buy Me a Coffee Button - Fixed position */}
+      {/* Buy Me a Coffee Button */}
       <a
         href="https://www.buymeacoffee.com/suvamneog"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-3 right-3 sm:bottom-4 sm:right-4 hover:scale-105 transition-transform duration-200 z-40"
+        className="fixed bottom-2 right-2 sm:bottom-3 sm:right-3 md:bottom-4 md:right-4 hover:scale-105 transition-transform duration-200 z-40"
       >
         <img
           src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
           alt="Buy Me A Coffee"
-          className="shadow-lg h-10 w-auto sm:h-12"
-          style={{ 
-            height: "40px", 
-            width: "auto",
-            maxWidth: "140px"
-          }}
+          className="shadow-lg h-8 sm:h-10 md:h-12 w-auto"
         />
       </a>
 
@@ -88,7 +81,7 @@ function Home({ foodName, setFoodName, output, setOutput, loading, setLoading, s
             className="bg-neutral-800 rounded-lg p-4 sm:p-6 max-w-2xl w-full mx-auto text-xs sm:text-sm md:text-base text-neutral-300 max-h-[90vh] overflow-y-auto"
           >
             <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white mb-3 sm:mb-4">
-              How to Use the Food Analyser 
+              How to Use the Food Analyser
             </h3>
 
             <button

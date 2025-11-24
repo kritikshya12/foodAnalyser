@@ -271,7 +271,7 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
 
   if (loading && showLoading) {
     return (
-      <div className="w-full max-w-xs mx-auto">
+      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-2 sm:px-0">
         <LoadingCard />
       </div>
     );
@@ -280,47 +280,47 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
   // Show error message only when a search has been attempted and no results found
   if (!loading && searchAttempted && (!output || output.length === 0)) {
     return (
-      <div className="w-full max-w-md mx-auto">
+      <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-2 sm:px-0">
         <CardContainer className="w-full">
-          <CardBody className="bg-[#0C0C0C]/90 rounded-xl p-4 border border-red-500/[0.3]">
+          <CardBody className="bg-[#0C0C0C]/90 rounded-xl p-3 sm:p-4 border border-red-500/[0.3]">
             <CardItem>
-              <CardHeader className="text-center p-4">
-                <div className="flex justify-center mb-3">
-                  <AlertCircle className="w-12 h-12 text-red-500" />
+              <CardHeader className="text-center p-2 sm:p-4">
+                <div className="flex justify-center mb-2 sm:mb-3">
+                  <AlertCircle className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-red-500" />
                 </div>
-                <CardTitle className="text-lg text-white mb-2">
+                <CardTitle className="text-base sm:text-lg md:text-xl text-white mb-1 sm:mb-2">
                   Food Not Found
                 </CardTitle>
-                <CardDescription className="text-gray-300">
+                <CardDescription className="text-xs sm:text-sm md:text-base text-gray-300">
                   We couldn&apos;t find nutrition data for &quot;<span className="text-yellow-400">{originalQuery}</span>&quot;
                 </CardDescription>
               </CardHeader>
             </CardItem>
-            
+
             <CardItem>
               <CardContent className="text-center">
-                <div className="space-y-3 text-sm text-gray-400">
+                <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-400 px-2">
                   <p>This could be because:</p>
-                  <ul className="space-y-2 text-left">
+                  <ul className="space-y-1 sm:space-y-2 text-left">
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400">•</span>
+                      <span className="text-red-400 flex-shrink-0">•</span>
                       <span>There might be a typo in the food name</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400">•</span>
+                      <span className="text-red-400 flex-shrink-0">•</span>
                       <span>The food is not in our database</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400">•</span>
+                      <span className="text-red-400 flex-shrink-0">•</span>
                       <span>Try using more specific names (e.g., &quot;chicken breast&quot; instead of &quot;chicken&quot;)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400">•</span>
+                      <span className="text-red-400 flex-shrink-0">•</span>
                       <span>Check your spelling and try again</span>
                     </li>
                   </ul>
-                  
-                  <div className="pt-2 text-xs text-blue-400">
+
+                  <div className="pt-1 sm:pt-2 text-xs text-blue-400">
                     <p>Examples: &quot;chicken breast&quot;, &quot;chicken curry&quot;, &quot;100g rice&quot;</p>
                   </div>
                 </div>
@@ -418,8 +418,8 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
         </div>
       )}
 
-      <div 
-        className="w-full max-w-md mx-auto"
+      <div
+        className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-2 sm:px-0"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -428,86 +428,86 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
         style={{ cursor: output.length > 1 ? 'grab' : 'default' }}
       >
         <CardContainer className="w-full">
-          <CardBody className="bg-[#0C0C0C]/90 rounded-xl p-1 sm:p-2 md:p-3 border border-white/[0.05] min-h-[420px] sm:min-h-[450px] md:min-h-[480px]">
+          <CardBody className="bg-[#0C0C0C]/90 rounded-xl p-2 sm:p-3 md:p-4 border border-white/[0.05] min-h-[380px] sm:min-h-[420px] md:min-h-[450px] lg:min-h-[500px]">
             <CardItem>
-              <CardHeader className="p-2 sm:p-3">
-                {/* 🆕 Food Type Badge */}
-                <div className="flex justify-center mb-3">
-                  <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${badge.color} text-white`}>
-                    <BadgeIcon className="w-3 h-3" />
+              <CardHeader className="p-2 sm:p-3 md:p-4">
+                {/* Food Type Badge */}
+                <div className="flex justify-center mb-2 sm:mb-3">
+                  <span className={`inline-flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${badge.color} text-white`}>
+                    <BadgeIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                     {badge.label}
                   </span>
                 </div>
 
-                <CardTitle className="text-base sm:text-lg md:text-xl text-white text-center">
+                <CardTitle className="text-sm sm:text-base md:text-lg lg:text-xl text-white text-center">
                   {displayName}
                 </CardTitle>
 
-                {/* 🆕 Food Specifics Row */}
-                <div className="flex flex-wrap justify-center gap-2 mb-3">
+                {/* Food Specifics Row */}
+                <div className="flex flex-wrap justify-center gap-1 sm:gap-2 mb-2 sm:mb-3 px-1">
                   {/* Cut Type */}
                   {currentFood.cut && (
-                    <span className="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs border border-blue-500/30">
+                    <span className="px-2 py-0.5 sm:py-1 bg-blue-500/20 text-blue-300 rounded text-xs border border-blue-500/30">
                       🍗 {currentFood.cut}
                     </span>
                   )}
-                  
+
                   {/* Preparation Style */}
                   {preparationStyle && (
-                    <span className="px-2 py-1 bg-orange-500/20 text-orange-300 rounded text-xs border border-orange-500/30">
+                    <span className="px-2 py-0.5 sm:py-1 bg-orange-500/20 text-orange-300 rounded text-xs border border-orange-500/30">
                       👨‍🍳 {preparationStyle}
                     </span>
                   )}
-                  
+
                   {/* Protein Density */}
                   {proteinDensity > 0 && (
-                    <span className="px-2 py-1 bg-green-500/20 text-green-300 rounded text-xs border border-green-500/30">
+                    <span className="px-2 py-0.5 sm:py-1 bg-green-500/20 text-green-300 rounded text-xs border border-green-500/30">
                        {proteinDensity.toFixed(1)}g/100kcal
                     </span>
                   )}
-                  
+
                   {/* Raw/Cooked Indicator */}
                   {currentFood.isRaw && (
-                    <span className="px-2 py-1 bg-gray-500/20 text-gray-300 rounded text-xs border border-gray-500/30">
+                    <span className="px-2 py-0.5 sm:py-1 bg-gray-500/20 text-gray-300 rounded text-xs border border-gray-500/30">
                       ⚪ Raw
                     </span>
                   )}
                   {currentFood.isCooked && (
-                    <span className="px-2 py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs border border-yellow-500/30">
+                    <span className="px-2 py-0.5 sm:py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs border border-yellow-500/30">
                       🟡 Cooked
                     </span>
                   )}
                 </div>
 
-                {/* 🆕 Health Indicators */}
+                {/* Health Indicators */}
                 {healthIndicators.length > 0 && (
-                  <div className="flex flex-wrap justify-center gap-1 mb-3">
+                  <div className="flex flex-wrap justify-center gap-0.5 sm:gap-1 mb-2 sm:mb-3">
                     {healthIndicators.map((indicator, index) => (
-                      <span 
+                      <span
                         key={index}
-                        className={`px-2 py-1 rounded text-xs border ${indicator.color} border-current/30`}
+                        className={`px-2 py-0.5 sm:py-1 rounded text-xs border ${indicator.color} border-current/30`}
                       >
                         {indicator.label}
                       </span>
                     ))}
                   </div>
                 )}
-                
+
                 {/* Searched Gram Information */}
                 {searchedGrams && (
-                  <CardDescription className="text-xs sm:text-sm text-yellow-400 text-center mt-1">
+                  <CardDescription className="text-xs text-yellow-400 text-center mt-0.5 sm:mt-1">
                     Showing nutrition for: <strong>{searchedGrams}g</strong>
                     {servingSize !== searchedGrams && (
-                      <span className="text-gray-400 ml-1">
+                      <span className="text-gray-400 ml-1 text-xs">
                         (adjusted from {servingSize}g base)
                       </span>
                     )}
                   </CardDescription>
                 )}
-                
+
                 {/* Source Information */}
-                <CardDescription className="text-xs sm:text-sm flex items-center justify-center gap-1 mt-1">
-                  <Database className="w-3 h-3" />
+                <CardDescription className="text-xs flex items-center justify-center gap-1 mt-0.5 sm:mt-1">
+                  <Database className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                   <span className="text-gray-400">Source: </span>
                   <span className={sourceColor}>
                     {currentFood.source || "Unknown"}
@@ -515,8 +515,8 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
                 </CardDescription>
 
                 {/* Serving Size Information */}
-                <CardDescription className="ext-xs sm:text-sm flex items-center justify-center gap-1 mt-1">
-                  <Scale className="w-3 h-3" />
+                <CardDescription className="text-xs flex items-center justify-center gap-1 mt-0.5 sm:mt-1">
+                  <Scale className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                   <span className="text-gray-400">Base Serving: </span>
                   <span className="text-gray-300">
                     {servingSize}g {currentFood.serving_description && `(${currentFood.serving_description})`}
@@ -525,8 +525,8 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
 
                 {/* Login Prompt */}
                 {!isAuthenticated && (
-                  <CardDescription className="mt-1 sm:mt-2 text-blue-400 flex items-center justify-center gap-1 sm:gap-2 text-xs">
-                    <LogIn className="w-3 h-3" />
+                  <CardDescription className="mt-0.5 sm:mt-1 text-blue-400 flex items-center justify-center gap-1 text-xs">
+                    <LogIn className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                     <Link to="/login" className="underline text-red-400 hover:text-blue-300">
                       Log in to save history
                     </Link>
@@ -536,39 +536,39 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
             </CardItem>
 
             <CardItem>
-              <CardContent className="px-2 py-1 sm:p-3">
+              <CardContent className="px-2 py-2 sm:p-3 md:p-4">
                 <div className="grid gap-2 sm:gap-3">
                   {/* Total Calories */}
                   <div className="flex items-center justify-between">
-                    <span className="text-xs sm:text-sm md:text-base text-white">Total Calories</span>
-                    <span className="text-base sm:text-lg md:text-xl font-bold text-white">
+                    <span className="text-xs sm:text-sm text-white">Total Calories</span>
+                    <span className="text-sm sm:text-base md:text-lg font-bold text-white">
                       {formatNumber(adjustedCalories)} kcal
                     </span>
                   </div>
 
                   {/* Macronutrients */}
-                  <div className="grid grid-cols-3 gap-1 sm:gap-2 md:gap-3">
+                  <div className="grid grid-cols-3 gap-1 sm:gap-2">
                     <CardItem>
                       <Card className="bg-[#0C0C0C] border-white/[0.05]">
-                        <CardHeader className="p-1 sm:p-2 md:p-3">
-                          <CardTitle className="text-xs sm:text-sm md:text-base">Protein</CardTitle>
-                          <p className="text-sm sm:text-base md:text-lg font-bold">{formatNumber(adjustedProtein)} g</p>
+                        <CardHeader className="p-1 sm:p-2">
+                          <CardTitle className="text-xs sm:text-sm">Protein</CardTitle>
+                          <p className="text-xs sm:text-sm md:text-base font-bold">{formatNumber(adjustedProtein)} g</p>
                         </CardHeader>
                       </Card>
                     </CardItem>
                     <CardItem>
                       <Card className="bg-[#0C0C0C] border-white/[0.05]">
-                        <CardHeader className="p-1 sm:p-2 md:p-3">
-                          <CardTitle className="text-xs sm:text-sm md:text-base">Carbs</CardTitle>
-                          <p className="text-sm sm:text-base md:text-lg font-bold">{formatNumber(adjustedCarbs)} g</p>
+                        <CardHeader className="p-1 sm:p-2">
+                          <CardTitle className="text-xs sm:text-sm">Carbs</CardTitle>
+                          <p className="text-xs sm:text-sm md:text-base font-bold">{formatNumber(adjustedCarbs)} g</p>
                         </CardHeader>
                       </Card>
                     </CardItem>
                     <CardItem>
                       <Card className="bg-[#0C0C0C] border-white/[0.05]">
-                        <CardHeader className="p-1 sm:p-2 md:p-3">
-                          <CardTitle className="text-xs sm:text-sm md:text-base">Fats</CardTitle>
-                          <p className="text-sm sm:text-base md:text-lg font-bold">{formatNumber(adjustedFat)} g</p>
+                        <CardHeader className="p-1 sm:p-2">
+                          <CardTitle className="text-xs sm:text-sm">Fats</CardTitle>
+                          <p className="text-xs sm:text-sm md:text-base font-bold">{formatNumber(adjustedFat)} g</p>
                         </CardHeader>
                       </Card>
                     </CardItem>
@@ -577,35 +577,35 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
                   {/* Additional Nutrients */}
                   {(adjustedFiber > 0 || adjustedSugar > 0 || adjustedSaturatedFat > 0 || adjustedSodium > 0 || adjustedCholesterol > 0) && (
                     <CardItem>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-2 gap-1 sm:gap-2 text-xs sm:text-sm">
                         {adjustedFiber > 0 && (
                           <div className="flex items-center justify-between">
-                            <span className="text-xs sm:text-sm text-white">Dietary Fiber</span>
-                            <span className="text-sm font-bold text-white">{formatNumber(adjustedFiber)} g</span>
+                            <span className="text-white">Dietary Fiber</span>
+                            <span className="font-bold text-white">{formatNumber(adjustedFiber)} g</span>
                           </div>
                         )}
                         {adjustedSugar > 0 && (
                           <div className="flex items-center justify-between">
-                            <span className="text-xs sm:text-sm text-white">Sugar</span>
-                            <span className="text-sm font-bold text-white">{formatNumber(adjustedSugar)} g</span>
+                            <span className="text-white">Sugar</span>
+                            <span className="font-bold text-white">{formatNumber(adjustedSugar)} g</span>
                           </div>
                         )}
                         {adjustedSaturatedFat > 0 && (
                           <div className="flex items-center justify-between">
-                            <span className="text-xs sm:text-sm text-white">Saturated Fat</span>
-                            <span className="text-sm font-bold text-white">{formatNumber(adjustedSaturatedFat)} g</span>
+                            <span className="text-white">Saturated Fat</span>
+                            <span className="font-bold text-white">{formatNumber(adjustedSaturatedFat)} g</span>
                           </div>
                         )}
                         {adjustedSodium > 0 && (
                           <div className="flex items-center justify-between">
-                            <span className="text-xs sm:text-sm text-white">Sodium</span>
-                            <span className="text-sm font-bold text-white">{formatNumber(adjustedSodium)} mg</span>
+                            <span className="text-white">Sodium</span>
+                            <span className="font-bold text-white">{formatNumber(adjustedSodium)} mg</span>
                           </div>
                         )}
                         {adjustedCholesterol > 0 && (
                           <div className="flex items-center justify-between">
-                            <span className="text-xs sm:text-sm text-white">Cholesterol</span>
-                            <span className="text-sm font-bold text-white">{formatNumber(adjustedCholesterol)} mg</span>
+                            <span className="text-white">Cholesterol</span>
+                            <span className="font-bold text-white">{formatNumber(adjustedCholesterol)} mg</span>
                           </div>
                         )}
                       </div>
@@ -615,13 +615,13 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
                   {/* Nutrition Analysis */}
                   <CardItem>
                     <div className="grid gap-1 sm:gap-2">
-                      <h3 className="font-semibold text-white text-xs sm:text-sm md:text-base">Nutrition Analysis</h3>
+                      <h3 className="font-semibold text-white text-xs sm:text-sm">Nutrition Analysis</h3>
                       <div className="grid gap-1 sm:gap-2">
                         <div>
-                          <h4 className="text-xs sm:text-sm font-medium text-gray-400 mb-1 flex items-center gap-1">
-                            Benefits <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-green-500" />
+                          <h4 className="text-xs font-medium text-gray-400 mb-1 flex items-center gap-1">
+                            Benefits <Sparkles className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-green-500" />
                           </h4>
-                          <ul className="list-disc pl-3 sm:pl-4 text-green-400 text-xs">
+                          <ul className="list-disc pl-3 text-green-400 text-xs">
                             {pros.length > 0 ? (
                               pros.map((pro, i) => <li key={i}>{pro}</li>)
                             ) : (
@@ -630,10 +630,10 @@ function FoodAnalyzer({ output, loading, originalQuery, searchAttempted }) {
                           </ul>
                         </div>
                         <div>
-                          <h4 className="text-xs sm:text-sm font-medium text-gray-400 mb-1 flex items-center gap-1">
-                            Considerations <Info className="h-3 w-3 sm:h-4 sm:w-4 text-red-400" />
+                          <h4 className="text-xs font-medium text-gray-400 mb-1 flex items-center gap-1">
+                            Considerations <Info className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-red-400" />
                           </h4>
-                          <ul className="list-disc pl-3 sm:pl-4 text-red-400 text-xs">
+                          <ul className="list-disc pl-3 text-red-400 text-xs">
                             {cons.length > 0 ? (
                               cons.map((con, i) => <li key={i}>{con}</li>)
                             ) : (

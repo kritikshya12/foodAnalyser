@@ -79,7 +79,7 @@ function PlaceholdersAndVanishInputDemo({
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-2 sm:px-0">
       <div className="relative">
         <PlaceholdersAndVanishInput
           placeholders={placeholders}
@@ -92,22 +92,22 @@ function PlaceholdersAndVanishInputDemo({
       </div>
 
       {error && (
-        <div className="mt-3 p-3 bg-red-900/20 border border-red-800 rounded-lg">
-          <p className="text-red-400 text-sm text-center">{error}</p>
+        <div className="mt-2 sm:mt-3 p-2 sm:p-3 bg-red-900/20 border border-red-800 rounded-lg">
+          <p className="text-red-400 text-xs sm:text-sm text-center">{error}</p>
           <p className="text-red-300/70 text-xs text-center mt-1">
             💡 Try common Indian foods like roti, dal, rice, biryani, etc.
           </p>
         </div>
       )}
 
-      <div className="mt-4 text-center">
-        <p className="text-gray-400 text-xs">
+      <div className="mt-3 sm:mt-4 text-center px-2">
+        <p className="text-gray-400 text-xs sm:text-sm">
           🔍 Powered by{" "}
           <span className="text-blue-400 font-medium">IFCT 2017</span> +{" "}
           <span className="text-green-400 font-medium">INDB</span> +{" "}
           <span className="text-yellow-400 font-medium">Global dataset</span>
         </p>
-        <p className="text-gray-500 text-xs mt-1">
+        <p className="text-gray-500 text-xs mt-1 sm:mt-2">
           All nutrition values are per 100g serving for accurate comparison
         </p>
       </div>
